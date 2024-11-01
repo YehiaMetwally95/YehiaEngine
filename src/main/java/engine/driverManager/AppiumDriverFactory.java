@@ -103,17 +103,17 @@ public class AppiumDriverFactory {
     }
 
     //ThreadLocal Driver
-    public static AppiumDriver getDriver(ThreadLocal<io.appium.java_client.AppiumDriver> isolatedDriver)
+    public static AppiumDriver getDriver(ThreadLocal<AppiumDriver> isolatedDriver)
     {
         return isolatedDriver.get();
     }
 
-    public static void isolateWebDriver(io.appium.java_client.AppiumDriver driver , ThreadLocal<io.appium.java_client.AppiumDriver> isolatedDriver)
+    public static void isolateWebDriver(AppiumDriver driver , ThreadLocal<AppiumDriver> isolatedDriver)
     {
         isolatedDriver.set(driver);
     }
 
-    public static void removeIsolatedDriver (ThreadLocal<io.appium.java_client.AppiumDriver> isolatedDriver)
+    public static void removeIsolatedDriver (ThreadLocal<AppiumDriver> isolatedDriver)
     {
         isolatedDriver.remove();
     }

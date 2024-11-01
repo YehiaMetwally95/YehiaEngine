@@ -1,6 +1,5 @@
 package engine.driverManager;
 
-import engine.loggers.CustomSoftAssert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -85,17 +84,16 @@ public class BrowserFactory {
                     logErrorStep("Failed to Start Browser, The Input Browser Name is Incorrect");
             }
         }
-
         //Set the Logger Classes with the driver
-        CustomSoftAssert.softAssertDriver = getDriver(driver);
-        context.setAttribute("driver",getDriver(driver));
+        context.setAttribute("isolatedDriver",driver);
+
         return driver;
     }
 
     private static ChromeOptions getChromeOptions()
     {
         ChromeOptions option = new ChromeOptions();
-        option.addArguments("--disable-infobars");
+        option.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         option.addArguments("--start-maximized");
         if (executionType.equalsIgnoreCase("LocalHeadless") || executionType.equalsIgnoreCase("Remote"))
             option.addArguments("--headless");
@@ -106,7 +104,7 @@ public class BrowserFactory {
     private static EdgeOptions getEdgeOptions()
     {
         EdgeOptions option = new EdgeOptions();
-        option.addArguments("--disable-infobars");
+        option.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         option.addArguments("--start-maximized");
         if (executionType.equalsIgnoreCase("LocalHeadless") || executionType.equalsIgnoreCase("Remote"))
             option.addArguments("--headless");
