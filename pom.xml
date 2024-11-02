@@ -209,6 +209,19 @@
                 </plugin>
 
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.4.0</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+                <plugin>
                     <groupId>dev.aspectj</groupId>
                     <artifactId>aspectj-maven-plugin</artifactId>
                     <version>${aspectj-maven-plugin.version}</version>
@@ -246,15 +259,15 @@
                             </property>
                             <property>
                                 <name>listener</name>
-                                <value>engine.listeners.MethodListeners</value>
+                                <value>com.yehia.engine.listeners.MethodListeners</value>
                             </property>
                             <property>
                                 <name>listener</name>
-                                <value>engine.listeners.SuiteListeners</value>
+                                <value>com.yehia.engine.listeners.SuiteListeners</value>
                             </property>
                             <property>
                                 <name>listener</name>
-                                <value>engine.listeners.ParallelExecutionListener</value>
+                                <value>com.yehia.engine.listeners.ParallelExecutionListener</value>
                             </property>
                         </properties>
                     </configuration>
