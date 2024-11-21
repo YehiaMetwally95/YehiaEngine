@@ -25,13 +25,13 @@
 - Uploading All Log Files , All Screenshots to Allure Report
 
 ### Reporting
+- "Open_Allure_Report.bat" file to easily open allure report after Test Run Finishes
 - Logging All Scenario Steps and Test Validations on Allure Report, in form of main steps and expanding every main step to check its child steps
 - Reporting Test Result & Taking Screenshots for Failed Tests and Successful Tests
 - Reporting Soft assertion failures and Taking Screenshots for them
 - Reporting All API Requests and Responses Sent, with a Screenshot for each
 - Defining Epics/Features/Stories
 - Attach Log File to its related Method (Either Test Methods or Configuration Methods)
-- "Open_Allure_Report.bat" file to easily open allure report every test run 
 
 ### Parallelization
 - Provide All Parallel Modes "NONE, METHODS , TESTS , CLASSES" for Running Tests
