@@ -36,7 +36,7 @@
 ### Parallelization
 - Provide All Parallel Modes "NONE, METHODS , TESTS , CLASSES" for Running Tests
 - Able to Configure Parallel Mode and No of Threads
-- Parallelization Options of running test classes through "TestNG" by directly press on Run Button & through "Maven Surefire Plugin" by running tests from Command Prompt 
+- Parallelization Options of running test classes through "TestNG" by directly press on Run Button & through "Maven Surefire Plugin" by running tests from Command Prompt or from CI-CD Pipeline
 
 ### Configuration Files
 - PropertiesFiles that hold all configurations related to APIs, DataBases, Mobile Apps , Web Apps, Waits and Parallel Modes
