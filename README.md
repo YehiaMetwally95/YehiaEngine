@@ -1,6 +1,7 @@
 # Overview
 - Automation Engine for Websites, APIs and Mobile Apps (Native Android / Native IOS / Web App)
 - Written in Java for Maven Projects that built over Selenium 4 and Appium 2 and Rest Assured
+- Provide very Easy Interactions with Web Elements, Rest API Requests and Native Mobile Elements Without any need to Scroll Element till displayed into View
 - Configured to Run Web Tests Locally / Headless and Remotely on Selenium Grid with Docker Containers
 - Configured to Run Mobile Tests Locally and Remotely on BrowserStack & SauceLabs
 - Configured to Run Tests In Parallel in Various Modes
@@ -11,8 +12,9 @@
 # Features
 ### Element Interactions
 - WebElementActions Class for Different Interactions with Web Elements
-- W3CTouchActions Class for Different Interactions with Mobile Elements "Android or IOS", Based on W3C Actions APIs for Swiping and other Mobile Gestures
-- NativeAndroidActions for Different Interactions with Native Android Elements, Based on UIScrollable Class for Swiping Into Screen and Into Element without using x,y Coordinates
+- W3CTouchActions Class for Different Interactions with Mobile Elements "Android or IOS", Based on W3C Actions APIs for Swiping and other Gestures
+- NativeAndroidActions for Different Interactions with Native Android Elements, Based on UIScrollable Class for Swiping Into Screen and Into Element Without using x,y Coordinates
+- Provide Easy Interaction with Native Mobile Elements like Tap / Long Tab /Zoom / DragAndDrop/ Swipe, with one command with Auto Scrolling the Target Element into Screen or into Swiped Element
 - Synchronizing All Elements Identifications and All Actions taken on elements inside Fluent Wait with lambda expression, thus waiting till action is taken not just till finding the element
 
 ### Browser Interactions
