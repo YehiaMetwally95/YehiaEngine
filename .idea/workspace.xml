@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c2e3970f-8ee2-437b-b02d-8e4593f49335" name="Changes" comment="Test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/driverManager/AppiumFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/driverManager/AppiumFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/ApisManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/ApisManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/JsonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/JsonManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/SessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/SessionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/utilities/RandomDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/utilities/RandomDataGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +36,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/YehiaMetwally95/YehiaEngine&quot;,
-    &quot;accountId&quot;: &quot;654f9742-5c3f-4708-bc64-294b3e94f92d&quot;
+    &quot;accountId&quot;: &quot;8e0ad561-fc41-4f51-bc0c-601cdc47f971&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -49,7 +53,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "F:/Automation Projects/YehiaEngine",
+    "last_opened_file_path": "D:/Automation_Projects/YehiaEngine/src/main/java",
     "onboarding.tips.debug.path": "D:/AutomatestProject/YehiaEngine/src/main/java/io/github/YehiaMetwally95/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -58,11 +62,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Automation_Projects\YehiaEngine\src\main\java" />
       <recent name="F:\Automation Projects\YehiaEngine\src\main\java" />
       <recent name="F:\Automation Projects\YehiaEngine\src\main\resources" />
       <recent name="D:\AutomatestProject\YehiaEngine" />
       <recent name="D:\AutomatestProject\YehiaEngine\src\main\resources\dbFiles" />
-      <recent name="D:\AutomatestProject\YehiaEngine\src\main\java" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
