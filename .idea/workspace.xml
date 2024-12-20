@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2e3970f-8ee2-437b-b02d-8e4593f49335" name="Changes" comment="" />
+    <list default="true" id="c2e3970f-8ee2-437b-b02d-8e4593f49335" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/assertions/SoftAssertHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/assertions/SoftAssertHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/driverManager/BrowserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/driverManager/BrowserFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/Helpers/WebElementActionsHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/Helpers/WebElementActionsHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/WebElementsActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/elementActions/WebElementsActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/MethodListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/MethodListeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/ApisManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/ApisManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/JsonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/managers/JsonManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/utilities/RandomDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/utilities/RandomDataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/apps/Android-SauceLabs.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/apps/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/apps/ApiDemos-debug.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dbFiles/AutomationExercise_ProductsAndUsers.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dbFiles/SwagLabs_ProductsAndUsers.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/Database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/screenshots/FailedTests/loginWithNonExistingUserThroughGUI.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -199,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734393724403</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Test">
+      <option name="closed" value="true" />
+      <created>1734649177243</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1734649177243</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
