@@ -9,6 +9,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.safari.SafariOptions;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
@@ -20,7 +22,7 @@ import java.net.URL;
 public class BrowserFactory {
     private static final ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();;
 
-    private static String browserType = System.getProperty("browserType");
+    private static final String browserType = System.getProperty("browserType");
     private static final String executionType = System.getProperty("executionType");
     private static final String remoteExecutionHost = System.getProperty("remoteExecutionHost");
     private static final String remoteExecutionPort = System.getProperty("remoteExecutionPort");
@@ -28,24 +30,39 @@ public class BrowserFactory {
     public static ThreadLocal<RemoteWebDriver> openBrowser() throws MalformedURLException {
         ITestResult result = Reporter.getCurrentTestResult();
         ITestContext context = result.getTestContext();
-
         if (executionType.equalsIgnoreCase("Local") || executionType.equalsIgnoreCase("LocalHeadless"))
         {
-            switch (BrowserFactory.browserType)
+            switch (browserType)
             {
                 case "Chrome" :
                     driver.set(new ChromeDriver(getChromeOptions()));
-                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
+                    LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
                     break;
 
                 case "Firefox" :
                     driver.set(new FirefoxDriver(getFireFoxOptions()));
-                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
+                    LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
                     break;
 
                 case "Edge" :
                     driver.set(new EdgeDriver(getEdgeOptions()));
-                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
+                    LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
+                    break;
+
+                case "Safari" :
+
+/*                    try {
+                        ProcessBuilder processBuilder = new ProcessBuilder("safaridriver", "--enable");
+                        processBuilder.inheritIO(); // This ensures the output is shown in the console
+                        Process process = processBuilder.start();
+                        process.waitFor(); // Wait for the process to complete*/
+                        driver.set(new SafariDriver(getSafariOptions()));
+                        driver.get().manage().window().maximize();
+                        LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
+/*
+                    } catch (IOException | InterruptedException e) {
+                        Assert.fail("Failed to Start Safari Browser",e);
+                    }*/
                     break;
                 default:
                     LogHelper.logErrorStep("Failed to Start Browser, The Input Browser Name is Incorrect");
@@ -54,14 +71,14 @@ public class BrowserFactory {
 
         else if (executionType.equalsIgnoreCase("Remote"))
         {
-            switch (BrowserFactory.browserType)
+            switch (browserType)
             {
                 case "Chrome" :
                     driver.set(new RemoteWebDriver(
                             new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
                             ,getChromeOptions()));
                     driver.get().setFileDetector(new LocalFileDetector());
-                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
+                    LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
                     break;
 
                 case "Firefox" :
@@ -69,7 +86,7 @@ public class BrowserFactory {
                             new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
                             ,getFireFoxOptions()));
                     driver.get().setFileDetector(new LocalFileDetector());
-                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
+                    LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
                     break;
 
                 case "Edge" :
@@ -77,7 +94,23 @@ public class BrowserFactory {
                             new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
                             ,getEdgeOptions()));
                     driver.get().setFileDetector(new LocalFileDetector());
-                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
+                    LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
+                    break;
+
+                case "Safari" :
+
+/*                    try {
+                        ProcessBuilder processBuilder = new ProcessBuilder("safaridriver", "--enable");
+                        processBuilder.inheritIO(); // This ensures the output is shown in the console
+                        Process process = processBuilder.start();
+                        process.waitFor(); // Wait for the process to complete*/
+                    driver.set(new SafariDriver(getSafariOptions()));
+                    driver.get().manage().window().maximize();
+                    LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
+/*
+                    } catch (IOException | InterruptedException e) {
+                        Assert.fail("Failed to Start Safari Browser",e);
+                    }*/
                     break;
                 default:
                     LogHelper.logErrorStep("Failed to Start Browser, The Input Browser Name is Incorrect");
@@ -88,80 +121,12 @@ public class BrowserFactory {
 
         return driver;
     }
-
-    public static ThreadLocal<RemoteWebDriver> openBrowser(String browserType) throws MalformedURLException {
-        ITestResult result = Reporter.getCurrentTestResult();
-        ITestContext context = result.getTestContext();
-        if (browserType != null && !browserType.isEmpty())
-            BrowserFactory.browserType = browserType;
-
-        if (executionType.equalsIgnoreCase("Local") || executionType.equalsIgnoreCase("LocalHeadless"))
-        {
-            switch (BrowserFactory.browserType)
-            {
-                case "Chrome" :
-                    driver.set(new ChromeDriver(getChromeOptions()));
-                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
-                    break;
-
-                case "Firefox" :
-                    driver.set(new FirefoxDriver(getFireFoxOptions()));
-                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
-                    break;
-
-                case "Edge" :
-                    driver.set(new EdgeDriver(getEdgeOptions()));
-                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
-                    break;
-                default:
-                    LogHelper.logErrorStep("Failed to Start Browser, The Input Browser Name is Incorrect");
-            }
-        }
-
-        else if (executionType.equalsIgnoreCase("Remote"))
-        {
-            switch (BrowserFactory.browserType)
-            {
-                case "Chrome" :
-                    driver.set(new RemoteWebDriver(
-                            new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
-                            ,getChromeOptions()));
-                    driver.get().setFileDetector(new LocalFileDetector());
-                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
-                    break;
-
-                case "Firefox" :
-                    driver.set(new RemoteWebDriver(
-                            new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
-                            ,getFireFoxOptions()));
-                    driver.get().setFileDetector(new LocalFileDetector());
-                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
-                    break;
-
-                case "Edge" :
-                    driver.set(new RemoteWebDriver(
-                            new URL("http://" + remoteExecutionHost + ":" + remoteExecutionPort + "/wd/hub")
-                            ,getEdgeOptions()));
-                    driver.get().setFileDetector(new LocalFileDetector());
-                    LogHelper.logInfoStep("Starting "+ BrowserFactory.browserType +" Browser ............");
-                    break;
-                default:
-                    LogHelper.logErrorStep("Failed to Start Browser, The Input Browser Name is Incorrect");
-            }
-        }
-        //Set the Logger Classes with the driver
-        context.setAttribute("isolatedWebDriver",driver);
-
-        return driver;
-    }
-
 
     private static ChromeOptions getChromeOptions()
     {
         ChromeOptions option = new ChromeOptions();
         option.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         option.addArguments("--start-maximized");
-        option.setAcceptInsecureCerts(true);
         if (executionType.equalsIgnoreCase("LocalHeadless") || executionType.equalsIgnoreCase("Remote"))
             option.addArguments("--headless");
 
@@ -173,10 +138,15 @@ public class BrowserFactory {
         EdgeOptions option = new EdgeOptions();
         option.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         option.addArguments("--start-maximized");
-        option.setAcceptInsecureCerts(true);
         if (executionType.equalsIgnoreCase("LocalHeadless") || executionType.equalsIgnoreCase("Remote"))
             option.addArguments("--headless");
 
+        return option;
+    }
+
+    private static SafariOptions getSafariOptions()
+    {
+        SafariOptions option = new SafariOptions();
         return option;
     }
 
@@ -184,7 +154,6 @@ public class BrowserFactory {
     {
         FirefoxOptions option = new FirefoxOptions();
         option.addArguments("--start-minimized");
-        option.setAcceptInsecureCerts(true);
         if (executionType.equalsIgnoreCase("LocalHeadless") || executionType.equalsIgnoreCase("Remote"))
             option.addArguments("--headless");
 

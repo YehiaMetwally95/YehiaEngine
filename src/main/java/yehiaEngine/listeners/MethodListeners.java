@@ -5,7 +5,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.*;
 import yehiaEngine.assertions.SoftAssertHelper;
 import yehiaEngine.driverManager.AppiumFactory;
-import yehiaEngine.driverManager.BrowserFactory;
 import yehiaEngine.loggers.AllureReportLogger;
 
 import java.io.IOException;

@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2e3970f-8ee2-437b-b02d-8e4593f49335" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/open_allure_report.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/assertions/SoftAssertHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/assertions/SoftAssertHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/driverManager/BrowserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/driverManager/BrowserFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/MethodListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yehiaEngine/listeners/MethodListeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/propertiesFiles/WebApp.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/propertiesFiles/WebApp.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +33,12 @@
     &quot;assignee&quot;: &quot;YehiaMetwally95&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/YehiaMetwally95/YehiaEngine&quot;,
-    &quot;accountId&quot;: &quot;8e0ad561-fc41-4f51-bc0c-601cdc47f971&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/YehiaMetwally95/YehiaEngine",
+    "accountId": "8182f8f7-ec7b-465d-815c-78a605dc9373"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -46,9 +51,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Automation_Projects/YehiaEngine",
+    "last_opened_file_path": "/Users/yehia.metwally/Desktop/Repos/YehiaEngine",
     "onboarding.tips.debug.path": "D:/AutomatestProject/YehiaEngine/src/main/java/io/github/YehiaMetwally95/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -57,11 +63,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="D:\Automation_Projects\YehiaEngine\src\main\java" />
       <recent name="F:\Automation Projects\YehiaEngine\src\main\java" />
       <recent name="F:\Automation Projects\YehiaEngine\src\main\resources" />
       <recent name="D:\AutomatestProject\YehiaEngine" />
-      <recent name="D:\AutomatestProject\YehiaEngine\src\main\resources\dbFiles" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="yehiaEngine.driverManager" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

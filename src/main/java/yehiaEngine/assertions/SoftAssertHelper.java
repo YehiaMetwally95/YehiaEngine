@@ -10,7 +10,6 @@ import org.testng.Reporter;
 import org.testng.asserts.IAssert;
 import org.testng.asserts.SoftAssert;
 import yehiaEngine.driverManager.AppiumFactory;
-import yehiaEngine.driverManager.BrowserFactory;
 import yehiaEngine.loggers.LogHelper;
 import yehiaEngine.loggers.Screenshot;
 
