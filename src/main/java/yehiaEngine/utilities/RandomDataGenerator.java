@@ -63,17 +63,17 @@ public class RandomDataGenerator {
         return new Faker().lorem().sentence();
     }
 
-    public static String generatePreviousDate(String format)
+    public static String generatePreviousDate()
     {
         Date pastDate = new Faker().date().past(50, TimeUnit.DAYS);
-        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(pastDate);
     }
 
-    public static String generateFutureDate(String format)
+    public static String generateFutureDate()
     {
         Date futureDate = new Faker().date().future(50, TimeUnit.DAYS);
-        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(futureDate);
     }
 

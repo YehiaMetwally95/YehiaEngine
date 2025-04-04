@@ -9,8 +9,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.safari.SafariOptions;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
@@ -48,22 +46,6 @@ public class BrowserFactory {
                     driver.set(new EdgeDriver(getEdgeOptions()));
                     LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
                     break;
-
-                case "Safari" :
-
-/*                    try {
-                        ProcessBuilder processBuilder = new ProcessBuilder("safaridriver", "--enable");
-                        processBuilder.inheritIO(); // This ensures the output is shown in the console
-                        Process process = processBuilder.start();
-                        process.waitFor(); // Wait for the process to complete*/
-                        driver.set(new SafariDriver(getSafariOptions()));
-                        driver.get().manage().window().maximize();
-                        LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
-/*
-                    } catch (IOException | InterruptedException e) {
-                        Assert.fail("Failed to Start Safari Browser",e);
-                    }*/
-                    break;
                 default:
                     LogHelper.logErrorStep("Failed to Start Browser, The Input Browser Name is Incorrect");
             }
@@ -96,22 +78,6 @@ public class BrowserFactory {
                     driver.get().setFileDetector(new LocalFileDetector());
                     LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
                     break;
-
-                case "Safari" :
-
-/*                    try {
-                        ProcessBuilder processBuilder = new ProcessBuilder("safaridriver", "--enable");
-                        processBuilder.inheritIO(); // This ensures the output is shown in the console
-                        Process process = processBuilder.start();
-                        process.waitFor(); // Wait for the process to complete*/
-                    driver.set(new SafariDriver(getSafariOptions()));
-                    driver.get().manage().window().maximize();
-                    LogHelper.logInfoStep("Starting "+ browserType +" Browser ............");
-/*
-                    } catch (IOException | InterruptedException e) {
-                        Assert.fail("Failed to Start Safari Browser",e);
-                    }*/
-                    break;
                 default:
                     LogHelper.logErrorStep("Failed to Start Browser, The Input Browser Name is Incorrect");
             }
@@ -141,12 +107,6 @@ public class BrowserFactory {
         if (executionType.equalsIgnoreCase("LocalHeadless") || executionType.equalsIgnoreCase("Remote"))
             option.addArguments("--headless");
 
-        return option;
-    }
-
-    private static SafariOptions getSafariOptions()
-    {
-        SafariOptions option = new SafariOptions();
         return option;
     }
 

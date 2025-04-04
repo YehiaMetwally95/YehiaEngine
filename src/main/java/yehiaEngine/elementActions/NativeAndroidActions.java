@@ -2,12 +2,16 @@ package yehiaEngine.elementActions;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import yehiaEngine.elementActions.Helpers.NativeAndroidActionsHelper;
 import yehiaEngine.elementActions.Helpers.W3CTouchActionsHelper;
 import yehiaEngine.loggers.LogHelper;
 
@@ -363,6 +367,11 @@ public class NativeAndroidActions {
     //Get Text from Element Without Swiping & Log the Text
     public String readText(By locator) {
         return new W3CTouchActions(driver).readText(locator);
+    }
+
+    //Get Toast Text Without Swiping
+    public String readToastText(By locator){
+        return NativeAndroidActionsHelper.getElementName(driver,locator);
     }
 
     /**
@@ -1098,6 +1107,14 @@ public class NativeAndroidActions {
             LogHelper.logInfoStep("Swiping (" + direction + ") into Element [" + swipedElementName + "]");
             swipeTillElementDisplayed(driver, locator, direction, swipedElementLocator);
         }
+        return this;
+    }
+
+    /**
+     * *********************************  Android Keys Actions  *************************************
+     */
+    public NativeAndroidActions pressOnAndroidKey(AndroidKey key){
+        ((AndroidDriver)driver).pressKey(new KeyEvent(key));
         return this;
     }
 }
