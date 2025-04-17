@@ -27,7 +27,7 @@ public class WebElementsActions {
      * *********************************  Basic Interactions *************************************
      */
     // Clear TextBox then Typing on it & Log Typing Action
-    public WebElementsActions type (By locator , String text) {
+    public WebElementsActions type (By locator , CharSequence... text) {
         //Locate Element and Check if its present on DOM
         locateElement(driver,locator);
         //Check if Element is Displayed and Visible on Page
