@@ -1,6 +1,7 @@
 package yehiaEngine.listeners;
 
 import io.appium.java_client.AppiumDriver;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.*;
 import yehiaEngine.assertions.SoftAssertHelper;
@@ -20,11 +21,11 @@ public class MethodListeners implements IInvokedMethodListener , IConfigurationL
 
     public void beforeInvocation(IInvokedMethod method, ITestResult testResult, ITestContext context) {
         //Set Log File for Test Methods
-        if(method.isTestMethod())
+        if(method.isTestMethod() && !AbstractTestNGCucumberTests.class.isAssignableFrom(method.getTestMethod().getTestClass().getRealClass()))
             setLogFileName("Test - "+method.getTestMethod().getMethodName());
 
         //Set Log File for Configurations Methods
-        if(method.isConfigurationMethod())
+        if(method.isConfigurationMethod() && !AbstractTestNGCucumberTests.class.isAssignableFrom(method.getTestMethod().getTestClass().getRealClass()))
         {
             if(!(method.getTestMethod().isAfterMethodConfiguration() || method.getTestMethod().isBeforeMethodConfiguration()))
                 setLogFileName("Configuration - "+method.getTestMethod().getMethodName()+"-"+testResult.getTestClass().getRealClass().getSimpleName());
@@ -44,7 +45,8 @@ public class MethodListeners implements IInvokedMethodListener , IConfigurationL
     }
 
     public void afterInvocation(IInvokedMethod method, ITestResult testResult, ITestContext context) {
-        if(method.isTestMethod())
+
+        if(method.isTestMethod() && !AbstractTestNGCucumberTests.class.isAssignableFrom(method.getTestMethod().getTestClass().getRealClass()))
         {
             //Log Screenshots for Successful and Failed Tests
             ThreadLocal<RemoteWebDriver> webDriver = (ThreadLocal<RemoteWebDriver>) context.getAttribute("isolatedWebDriver");

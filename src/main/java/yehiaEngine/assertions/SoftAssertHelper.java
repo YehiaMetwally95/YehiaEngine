@@ -1,6 +1,7 @@
 package yehiaEngine.assertions;
 
 import io.appium.java_client.AppiumDriver;
+import io.cucumber.java.Scenario;
 import io.qameta.allure.Allure;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.IInvokedMethod;
@@ -49,6 +50,23 @@ public class SoftAssertHelper extends SoftAssert {
                 String combinedError = String.join("\n", threadErrors);
                 LogHelper.logWarningStep("Soft Assertions Summary:\n" + combinedError);
                 Allure.step("Soft Assertions Summary for " + method.getTestMethod().getMethodName() + ": \n", () -> {
+                    threadErrors.forEach(Allure::step);
+                });
+            }
+        } catch (Exception e) {
+            logErrorStep("Failed to Log the Soft Assertion Summery Report", e);
+        } finally {
+            errors.remove();  // Clear the ThreadLocal list after reporting
+        }
+    }
+
+    public static void reportSoftAssertionErrors(Scenario scenario) {
+        try {
+            List<String> threadErrors = errors.get();  // Get the thread-local errors list
+            if (!threadErrors.isEmpty()) {
+                String combinedError = String.join("\n", threadErrors);
+                LogHelper.logWarningStep("Soft Assertions Summary:\n" + combinedError);
+                Allure.step("Soft Assertions Summary for " + scenario.getName() + ": \n", () -> {
                     threadErrors.forEach(Allure::step);
                 });
             }

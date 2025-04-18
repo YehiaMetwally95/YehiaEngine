@@ -1,5 +1,6 @@
 package yehiaEngine.loggers;
 
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -42,6 +43,37 @@ public class Screenshot {
             {
                 LogHelper.logErrorStep("Failed to Capture Screenshot for Failed Scenario",e);
             }
+    }
+
+    public static void captureSuccess(WebDriver driver, Scenario result) {
+        String screenshotName = "Successful Screenshot for [" + result.getName()+"]";
+        try {
+            Thread.sleep(1000);
+            File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File destination = new File("src/main/resources/screenshots/SuccessfulTests/" + result.getName() + ".png");
+            FileHandler.copy(source, destination);
+
+            AllureReportLogger.logScreenshotIntoAllure(driver, screenshotName,null);
+            LogHelper.logInfoStep("Capturing Screenshot for Succeeded Scenario");
+        } catch (Exception e) {
+            LogHelper.logErrorStep("Failed to Capture Screenshot for Successes Scenario", e);
+        }
+    }
+
+    public static void captureFailure(WebDriver driver, Scenario result){
+        String screenshotName = "Failed Screenshot for [" + result.getName()+"]";
+        try {
+            Thread.sleep(1000);
+            File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File destination = new File("src/main/resources/screenshots/FailedTests/"+ result.getName() +".png");
+            FileHandler.copy(source, destination);
+
+            AllureReportLogger.logScreenshotIntoAllure(driver, screenshotName,null);
+            LogHelper.logInfoStep("Capturing Screenshot for Failed Scenario");
+        } catch (Exception e)
+        {
+            LogHelper.logErrorStep("Failed to Capture Screenshot for Failed Scenario",e);
+        }
     }
 
     public static void captureSoftFailure(WebDriver driver,IAssert<?> assertCommand,String error){

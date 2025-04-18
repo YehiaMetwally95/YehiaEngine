@@ -5,8 +5,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import yehiaEngine.loggers.LogHelper;
 
-import java.util.Arrays;
-
 public class WebElementActionsHelper {
 
 
@@ -75,7 +73,7 @@ public class WebElementActionsHelper {
     /**
      * *********************************  Clear & Write Text On Element *************************************
      */
-    public static void writeText(WebDriver driver,By locator, String elementName, CharSequence...  text)
+    public static void writeText(WebDriver driver,By locator, String elementName, String text)
     {
         // Write Text on TextBox Element using the Selenium sendKeys method
         try{
@@ -84,16 +82,15 @@ public class WebElementActionsHelper {
                 return true;
             });
             //  Write Text using JavascriptExecutor in case of the data is not typed successfully
-            if (driver.findElement(locator).getDomAttribute("value") != null) {
-                driver.findElement(locator).getDomAttribute("value");
-                ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value', '" + Arrays.toString(text) + "')",
+            if (driver.findElement(locator).getAttribute("value") != null && !driver.findElement(locator).getAttribute("value").equals(text)) {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value', '" + text + "')",
                         driver.findElement(locator));
             }
-            LogHelper.logInfoStep("Typing ["+ Arrays.toString(text) +"] on Element ["+elementName+"]");
+            LogHelper.logInfoStep("Typing ["+text+"] on Element ["+elementName+"]");
 
         }catch (Exception e)
         {
-            LogHelper.logErrorStep("Failed to Type ["+ Arrays.toString(text) +"] on Element ["+elementName+"]",e);
+            LogHelper.logErrorStep("Failed to Type ["+text+"] on Element ["+elementName+"]",e);
         }
     }
 
