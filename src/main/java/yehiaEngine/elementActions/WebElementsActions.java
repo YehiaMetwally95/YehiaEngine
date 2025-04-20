@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import yehiaEngine.loggers.LogHelper;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -222,7 +223,7 @@ public class WebElementsActions {
         //Take Action on Element
         try {
             getFluentWait(driver).until(f -> {
-                new Actions(driver).moveToElement(driver.findElement(locator)).perform();
+                new Actions(driver).moveToElement(driver.findElement(locator)).pause(Duration.ofMillis(500)).perform();
                 return true;
             });
         }catch (Exception e)
