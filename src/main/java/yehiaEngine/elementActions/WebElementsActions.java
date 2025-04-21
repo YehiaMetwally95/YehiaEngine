@@ -223,7 +223,7 @@ public class WebElementsActions {
         //Take Action on Element
         try {
             getFluentWait(driver).until(f -> {
-                new Actions(driver).moveToElement(driver.findElement(locator)).pause(Duration.ofMillis(500)).perform();
+                new Actions(driver).moveToElement(driver.findElement(locator)).pause(Duration.ofMillis(2000)).perform();
                 return true;
             });
         }catch (Exception e)

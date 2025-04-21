@@ -58,6 +58,8 @@ public class RandomDataGenerator {
         return new Faker().address().zipCode();
     }
 
+    public static String generateMobileNumber() { return new Faker().phoneNumber().phoneNumber();}
+
     public static String generateDescription()
     {
         return new Faker().lorem().sentence();
