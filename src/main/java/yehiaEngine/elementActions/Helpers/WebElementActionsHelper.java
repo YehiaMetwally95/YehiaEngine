@@ -5,6 +5,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import yehiaEngine.loggers.LogHelper;
 
+import static yehiaEngine.elementActions.Helpers.WaitsManager.getFluentWait;
+
 public class WebElementActionsHelper {
 
 
@@ -15,7 +17,7 @@ public class WebElementActionsHelper {
     public static void locateElement(WebDriver driver, By locator) {
         try {
             //Wait for the element to be Present on DOM
-            WaitsManager.getFluentWait(driver).until(ExpectedConditions.presenceOfElementLocated(locator));
+            getFluentWait(driver).until(ExpectedConditions.presenceOfElementLocated(locator));
 
         } catch (Exception e) {
             LogHelper.logErrorStep("Failed to Locate the element by Locator [" + locator + "]", e);
@@ -25,14 +27,14 @@ public class WebElementActionsHelper {
     //Check if Element is Displayed on Page With Failing the Test if not displayed
     public static void checkElementDisplayed(WebDriver driver, By elementLocator) {
         // Scroll the element into view
-        WaitsManager.getFluentWait(driver).until(f -> {
+        getFluentWait(driver).until(f -> {
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);",driver.findElement(elementLocator));
             return true;
         });
 
         //Wait for the element to be Displayed on Page
         try {
-            WaitsManager.getFluentWait(driver).until(f -> driver.findElement(elementLocator).isDisplayed());
+            getFluentWait(driver).until(f -> driver.findElement(elementLocator).isDisplayed());
 
         } catch (TimeoutException e) {
             LogHelper.logErrorStep("The Element located by [" + elementLocator.toString() + "] is not Displayed", e);
@@ -44,9 +46,9 @@ public class WebElementActionsHelper {
         String elementName;
 
         if (driver instanceof AppiumDriver appiumDriver)
-            elementName = appiumDriver.findElement(locator).getText();
+            elementName = getFluentWait(appiumDriver).until(f -> driver.findElement(locator).getText());
         else
-            elementName = driver.findElement(locator).getAccessibleName();
+            elementName = getFluentWait(driver).until(f -> driver.findElement(locator).getAccessibleName());
 
         if ((elementName != null && !elementName.isEmpty()))
             return elementName;
@@ -57,7 +59,7 @@ public class WebElementActionsHelper {
     //Check if Element is Enabled on Page (By Locator)
     public static void checkElementEnabled(WebDriver driver, By locator, String elementName) {
         try {
-            WaitsManager.getFluentWait(driver).until(f -> driver.findElement(locator).isEnabled());
+            getFluentWait(driver).until(f -> driver.findElement(locator).isEnabled());
         } catch (TimeoutException e) {
             LogHelper.logErrorStep("The Element [" + elementName + "] is not Enabled", e);
         }
@@ -78,7 +80,7 @@ public class WebElementActionsHelper {
     public static void writeText(WebDriver driver, By locator, String elementName, String text) {
         // Write Text on TextBox Element using the Selenium sendKeys method
         try {
-            WaitsManager.getFluentWait(driver).until(f -> {
+            getFluentWait(driver).until(f -> {
                 driver.findElement(locator).sendKeys(text);
                 return true;
             });
@@ -96,7 +98,7 @@ public class WebElementActionsHelper {
 
     public static void clearText(WebDriver driver, By locator, String elementName) {
         try {
-            WaitsManager.getFluentWait(driver).until(f -> {
+            getFluentWait(driver).until(f -> {
                 driver.findElement(locator).clear();
                 return true;
             });
