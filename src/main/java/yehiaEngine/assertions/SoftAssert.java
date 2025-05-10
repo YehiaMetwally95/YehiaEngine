@@ -5,7 +5,7 @@ import java.util.Objects;
 import static yehiaEngine.assertions.SoftAssertHelper.softAssert;
 import static yehiaEngine.loggers.LogHelper.logInfoStep;
 
-public class CustomSoftAssert {
+public class SoftAssert {
 
     // Integer Soft Assertions
     public static void assertEquals(int actual, int expected) {

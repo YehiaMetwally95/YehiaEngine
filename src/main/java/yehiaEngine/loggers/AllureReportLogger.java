@@ -64,8 +64,10 @@ public class AllureReportLogger {
 
         try {
             ProcessBuilder builder = new ProcessBuilder(mavenCommand, "allure:report");
-            builder.inheritIO().start().waitFor();
-            logInfoStep("Generating the Allure Report");
+            builder.redirectOutput(ProcessBuilder.Redirect.DISCARD);
+            builder.redirectError(ProcessBuilder.Redirect.DISCARD);
+            Process process = builder.start();
+            process.waitFor();            logInfoStep("Generating the Allure Report");
         } catch (Exception e) {
             Assert.fail("Failed to Generate The Allure Report",e);
         }

@@ -4,6 +4,8 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import yehiaEngine.assertions.SoftAssertHelper;
 import yehiaEngine.loggers.AllureReportLogger;
 
@@ -27,10 +29,11 @@ public class BaseSteps {
     protected String productName;
     protected List<String> productNames = new ArrayList<>();
 
+    @Parameters({"BrowserType"})
     @Before (order = 1)
-    public void OpenBrowser() throws MalformedURLException {
+    public void OpenBrowser(@Optional String browserType) throws MalformedURLException {
         //Open Browser
-        isolatedDriver = openBrowser();
+        isolatedDriver = openBrowser(browserType);
 
         //Perform actions on Window
         navigateToURL(getDriver(isolatedDriver),getPropertiesValue("baseUrlWeb"));
